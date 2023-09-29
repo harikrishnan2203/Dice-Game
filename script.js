@@ -144,10 +144,6 @@ function rollDice(player) {
 
   const currentPlayerScore = player === 1 ? player1Score : player2Score;
 
-//   if (currentPlayerScore === 30) {
-//     alert(`Player ${player} already won!`);
-//     return;
-//   }
   const randomNumber = Math.floor(Math.random() * 6) + 1;
   diceElement.src = "./Assets/"+randomNumber+".png";
   
@@ -183,7 +179,7 @@ function rollDice(player) {
     player2Score = 0;
     document.getElementById("player1Score").textContent = "0";
     document.getElementById("player2Score").textContent = "0";
-    // document.getElementById("dice").textContent = "";
+    head.innerHTML = "Anyone can Start";
     let dis = document.getElementById("dice");
     dis.style.display = "none"
     currentPlayer = Math.floor(Math.random() * 2) + 1; // Randomly set starting player
