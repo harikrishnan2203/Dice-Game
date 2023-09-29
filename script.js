@@ -143,14 +143,15 @@ function rollDice(player) {
   const resetButton = document.getElementById("resetButton");
 
   const currentPlayerScore = player === 1 ? player1Score : player2Score;
-
+  
+  //Generate Randon num upto 6
   const randomNumber = Math.floor(Math.random() * 6) + 1;
   diceElement.src = "./Assets/"+randomNumber+".png";
-  
+  //Display the Dice image
   let dis1 = document.getElementById("dice");
   dis1.style.display = "block"
     
-
+  //player 1's turn
   if (player === 1) {
     player1Score += randomNumber;
     document.getElementById("player1Score").textContent = player1Score;
@@ -158,14 +159,16 @@ function rollDice(player) {
     rollButton1.disabled = true;
     rollButton2.disabled = false;
 
-  } else {
+  } 
+  //player 2's turn
+  else {
     player2Score += randomNumber;
     document.getElementById("player2Score").textContent = player2Score;
     head.innerHTML = "Player-"+(player - 1) +" To Play";
     rollButton2.disabled = true;
     rollButton1.disabled = false;
   }
-
+    //Who will win
     if (player1Score >= 30 || player2Score >= 30) {
       alert(`Player ${player} wins! - Please RESET The Game`);
       rollButton1.disabled = true;
@@ -173,7 +176,7 @@ function rollDice(player) {
       resetButton.disabled = false;
     }
 }
-
+  //Reset the game
   function resetGame() {
     player1Score = 0;
     player2Score = 0;
